@@ -10,7 +10,8 @@ export default function Home() {
     e.preventDefault();
 
     // Backend connect karne ke baad yahan API call aayegi.
-    alert("Account setup started!");
+    // alert("Account setup started!");
+    window.location.href = "/business/setup";
   };
 
   return (
