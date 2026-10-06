@@ -1,69 +1,236 @@
-import Image from "next/image";
+"use client";
+
+import { FormEvent, useState } from "react";
 
 export default function Home() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Backend connect karne ke baad yahan API call aayegi.
+    alert("Account setup started!");
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-[#f6f7fb] flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-6xl grid lg:grid-cols-2 bg-white rounded-3xl shadow-xl overflow-hidden">
+        
+        {/* Left Side */}
+        <div className="hidden lg:flex bg-[#111827] text-white p-12 flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-11 h-11 rounded-xl bg-white text-[#111827] flex items-center justify-center font-bold text-xl">
+                H
+              </div>
+
+              <div>
+                <h1 className="font-bold text-xl">Hotel SaaS</h1>
+                <p className="text-xs text-gray-400">
+                  Hospitality Management Platform
+                </p>
+              </div>
+            </div>
+
+            <h2 className="text-4xl font-bold leading-tight">
+              Everything your
+              <br />
+              hospitality business
+              <br />
+              needs.
+            </h2>
+
+            <p className="mt-6 text-gray-400 leading-7 max-w-md">
+              Manage rooms, reservations, restaurants, POS, inventory,
+              housekeeping and your entire operation from one platform.
+            </p>
+          </div>
+
+          <div className="space-y-4 text-sm text-gray-300">
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+                ✓
+              </span>
+              One unified platform
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+                ✓
+              </span>
+              Built for growing businesses
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
+                ✓
+              </span>
+              Role-based access control
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Right Side */}
+        <div className="p-7 sm:p-10 lg:p-12">
+          <div className="max-w-md mx-auto">
+            
+            {/* Mobile Logo */}
+            <div className="lg:hidden flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-xl bg-[#111827] text-white flex items-center justify-center font-bold">
+                H
+              </div>
+
+              <div>
+                <h1 className="font-bold text-lg">Hotel SaaS</h1>
+                <p className="text-xs text-gray-500">
+                  Hospitality Platform
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <p className="text-sm font-medium text-gray-500 mb-2">
+                GET STARTED
+              </p>
+
+              <h2 className="text-3xl font-bold text-gray-900">
+                Create your account
+              </h2>
+
+              <p className="mt-2 text-gray-500">
+                Start setting up your hospitality business.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              
+              {/* Name */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    First name
+                  </label>
+
+                  <input
+                    type="text"
+                    required
+                    placeholder="John"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Last name
+                  </label>
+
+                  <input
+                    type="text"
+                    required
+                    placeholder="Doe"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10"
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Work email
+                </label>
+
+                <input
+                  type="email"
+                  required
+                  placeholder="john@hotel.com"
+                  className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10"
+                />
+              </div>
+
+              {/* Password */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Password
+                </label>
+
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    minLength={8}
+                    placeholder="Minimum 8 characters"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 pr-20 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-gray-500 hover:text-gray-900"
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Confirm Password */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Confirm password
+                </label>
+
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    required
+                    minLength={8}
+                    placeholder="Re-enter your password"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 pr-20 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setShowConfirmPassword(!showConfirmPassword)
+                    }
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-gray-500 hover:text-gray-900"
+                  >
+                    {showConfirmPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Terms */}
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  required
+                  className="mt-1 h-4 w-4 rounded border-gray-300"
+                />
+
+                <p className="text-sm text-gray-500 leading-5">
+                  I agree to the Terms of Service and Privacy Policy.
+                </p>
+              </div>
+
+              {/* Button */}
+              <button
+                type="submit"
+                className="w-full rounded-xl bg-[#111827] text-white py-3.5 font-semibold transition hover:bg-black active:scale-[0.99]"
+              >
+                Create account
+              </button>
+            </form>
+
+            <p className="text-center text-sm text-gray-500 mt-7">
+              Already have an account?{" "}
+              <button className="font-semibold text-gray-900 hover:underline">
+                Sign in
+              </button>
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
